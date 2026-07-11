@@ -7,7 +7,7 @@
 \usepackage{amssymb}
 \usepackage{mathrsfs}
 \usepackage{afterpage}
-\usepackage[a4paper,top=4cm,bottom=4cm,left=2.5cm,right=2.5cm]{geometry}
+\usepackage[a4paper,top=4cm,bottom=4cm,left=2.5cm,right=2.5cm,margin=1in]{geometry}
 \usepackage{graphicx} % Required for inserting images
 \usepackage{systeme}
 \usepackage{tikz}
@@ -42,8 +42,6 @@
 \newtheorem{definition}{Definizione}
 \newtheorem{lem}{Lemma}
 \newtheorem{ex}{Esercizio}
-% \usepackage[margin=1in]{geometry}
-\geometry{a4paper, margin=1in}
 \usepackage{pgfplots}
 \newcommand{\linea}{\vspace{15pt}\hrule\vspace{15pt}}
 
@@ -2098,7 +2096,7 @@ Insomma, dimostriamo tutto:
 \begin{enumerate}
     \item $a_n \geqslant a_{n-1}$ $\forall n \in \N \textbackslash \{0,1\}$, infatti
     \begin{align*}
-        \left(1+\frac{1}{n}\right)^n \geqslant \left(1+\frac{1}{n-1}\right)^{n-1} \Longleftrightarrow \left(1+\frac{1}{n}\right)^n \geqslant \left(\+\frac{1}{n-1}\right)^n \cdot \left(1+\frac{1}{n-1}\right)^{-1} \,\, \\
+        \left(1+\frac{1}{n}\right)^n \geqslant \left(1+\frac{1}{n-1}\right)^{n-1} \Longleftrightarrow \left(1+\frac{1}{n}\right)^n \geqslant \left(+\frac{1}{n-1}\right)^n \cdot \left(1+\frac{1}{n-1}\right)^{-1} \,\, \\
         \Longleftrightarrow \,\, \left(\frac{n+1}{n} \cdot \frac{n-1}{n}\right)^n \geqslant \frac{n-1}{n}=1-\frac{1}{n} \,\, \Longleftrightarrow \,\, \left(\frac{n^2-1}{n^2}\right)^n \geqslant 1-\frac{1}{n}
     \end{align*}
     Per la disuguaglianza di Bernoulli, allora vale:
@@ -3045,7 +3043,7 @@ Sia $\lim_{x \to \pm\infty}f(x)=\pm\infty$.
 \\
 Allora si ha che
 \begin{equation}
-    \forall \,\,\, M>0 \,\,\, \exists \,\,\, N>0 \,\,\, \mbox{tale che, se}\,\,\, x  \lessgt \pmN, \,\,\, \mbox{allora} f(x)> \lessgt \pm M
+    \forall \,\,\, M>0 \,\,\, \exists \,\,\, N>0 \,\,\, \mbox{tale che, se}\,\,\, x  \lessgtr \pm N, \,\,\, \mbox{allora} f(x)> \lessgtr \pm M
 \end{equation}
 
 \subsection{Definizioni varie}
@@ -3362,9 +3360,9 @@ Si ha che $\lim_{x \to x_0}f(g(x))=\lim_{y \to y_0}f(y)$ \underline{SE} \begin{i
     \textbf{\textit{Dimostrazione}}
 \end{center}
 
-    \item Suppongo sia finito il $\lim_{y \to y_0}f(y)=l$.
+    Suppongo sia finito il $\lim_{y \to y_0}f(y)=l$.
     \\
-    \item Fisso$\varepsilon>0$ e CERCO se $\exists \,\,\, \overline{\delta} >0$ tale che, se $|x-x_0|<\overline{\delta}$
+    Fisso$\varepsilon>0$ e CERCO se $\exists \,\,\, \overline{\delta} >0$ tale che, se $|x-x_0|<\overline{\delta}$
     \begin{equation}
         |f(g(x))-l|<\varepsilon
     \end{equation}
@@ -3378,8 +3376,6 @@ Scegliamo $\overline{\varepsilon} = \delta_2$. Allora:
 |x - x_0| < \delta_1 \Rightarrow |g(x) - y_0| < \delta_2 \Rightarrow |f(g(x)) - \ell| < \varepsilon
 \]
 
-
-\end{itemize}
 Se $g(x) \neq y_0$ in un intorno bucato di $x_0$, la dimostrazione è analoga considerando:
 \[
 x \in (x_0 - \delta, x_0 + \delta) \setminus \{x_0\}
@@ -4063,10 +4059,12 @@ Per dimostrare i teoremi che affermano l'uguaglianza degli insiemi è necessario
     \\
     Allora scegliamo un $\delta_n=\frac{1}{n}>0$, dunque $\exists \,\,\, x_n,y_n \in [a,b]$ tali che 
     \begin{center}
+    \begin{equation}
     \begin{cases}
         |x_n-y_n|<\frac{1}{n} \\
         |f(x_n)-f(y_n)| \geqslant \varepsilon_0
     \end{cases}
+    \end{equation}
     \end{center}
 \end{proof}
 \begin{center}
@@ -5238,9 +5236,8 @@ Fissiamo $\{a_n\}$ e $\{b_n\}$ successioni, tali che $a_n \geqslant 0$, $b_n \ge
 \begin{enumerate}
     \item Se $a_n=O(b_n)$, se $\sum b_n < +\infty$, anche $\sum a_n < +\infty$
     \item Se $a_n= o(b_n)$, allora $\sum a_n < +\infty \,\, \Longleftrightarrow \,\, \sum b_n < +\infty$, cioè convergono entrambe, sono della stessa natura.
-    \item $a_n \texttldelow b_n$, $\sum a_n < +\infty \Longleftrightarrow \sum b_n < +\infty$
+    \item $a_n \sim b_n$, $\sum a_n < +\infty \Longleftrightarrow \sum b_n < +\infty$
     \end{enumerate}
-    \\
     \begin{center}
         \textbf{\textit{Dimostrazione}}
     \end{center}
@@ -5257,7 +5254,7 @@ Concludiamo con il teorema del confronto e abbiamo chiuso.
 \begin{center}
     \textbf{\textit{Dimostriamo il punto 3 (se 1 implica 2 e abbiamo dimostrato 1, allora 2 è dimostrato)}}
 \end{center}
-$a_n \texttildelow b_n \,\, \Longirghtarrow \,\, a_n=O(b_n)$ e che $b_n=O(a_n)$.
+$a_n \sim b_n \,\, \Longrightarrow \,\, a_n=O(b_n)$ e che $b_n=O(a_n)$.
 \\
 Per $1$, $b_n=O(a_n) \,\, \Longrightarrow \,\,$ se $\sum a_n < +\infty$, allora $\sum b_n < +\infty$ as well (pure).
 \\
@@ -5342,7 +5339,7 @@ Infatti si ottiene alla fine della dimostrazione inversa, che $S_{2^n} \geqslant
 \begin{center}
     \textbf{\textit{Corollario}}
 \end{center}
-$\sum \frac{1}{n^p}$ converge, ossia $\sum \frac{1}{n^p} < +\infty \,\, \Longleftrightarro \,\,  \sum \frac{2^n}{(2^n)^p} < +\infty$ (Infatti se $p >0$, se $p \leqslant 0$, $a_n \nrightarrow 0$).
+$\sum \frac{1}{n^p}$ converge, ossia $\sum \frac{1}{n^p} < +\infty \,\, \Longleftrightarrow \,\,  \sum \frac{2^n}{(2^n)^p} < +\infty$ (Infatti se $p >0$, se $p \leqslant 0$, $a_n \nrightarrow 0$).
 \\
 Ma $b_n=\frac{2^n}{(2^n)^p}=\frac{1}{2^{np-n}}=\left[(\frac{1}{2})^{p-1}\right]^n$, se chiamo $\left(\frac{1}{2}\right)^{p-1}=q$, allora ho $\sum b_n = \sum q^n$, che converge $\Longleftrightarrow \,\, q < 1$ (con $q \geqslant 0$).
 \\
@@ -5548,7 +5545,7 @@ $\sum \frac{(-1)^n}{n} \in \R$, se pongo $\varepsilon_n= \frac{1}{n} \searrow 0$
     \\
     MA: $\sum a_n$ converge e $\sum b_n$ \underline{\underline{NON}} converge.
     \\
-    In pratica $b_n$ è asintotica a una cosa che converge ma lei non converge. Infatti è possibile sviluppare con Taylor la successione $ln(1+ \frac{(-1)^n}{\sqrt{n}})$ chiamando $x=\frac{(-1)^n}{\sqrt{n}} \to 0$, in quanto infinitesima per limitata. Lo sviluppo a secondo orine sarà allora: $ln(1+ \frac{(-1)^n}{\sqrt{n}})=\frac{(-1)^n}{\sqrt{n}}-\frac{(-1)^{2n}}{2n}+o(\frac{1}{n}) \textildelow \frac{(-1)^n}{\sqrt{n}}-\frac{1}{2n}$, che non può convergere perchè $\sum\frac{1}{2n}$ diverge, come dimostrato all'inizio. Dunque osserviamo che, se usiamo il criterio del confronto asintotico partendo da una serie a segno costante per arrivare a una serie a segno non costante (in questo caso $\frac{(-1)^n}{\sqrt{n}}-\frac{1}{2n}$), il criterio del confronto asintotico non vale, come del resto si può osservare dalle ipotesi del criterio stesso.
+    In pratica $b_n$ è asintotica a una cosa che converge ma lei non converge. Infatti è possibile sviluppare con Taylor la successione $ln(1+ \frac{(-1)^n}{\sqrt{n}})$ chiamando $x=\frac{(-1)^n}{\sqrt{n}} \to 0$, in quanto infinitesima per limitata. Lo sviluppo a secondo orine sarà allora: $ln(1+ \frac{(-1)^n}{\sqrt{n}})=\frac{(-1)^n}{\sqrt{n}}-\frac{(-1)^{2n}}{2n}+o(\frac{1}{n}) \sim \frac{(-1)^n}{\sqrt{n}}-\frac{1}{2n}$, che non può convergere perchè $\sum\frac{1}{2n}$ diverge, come dimostrato all'inizio. Dunque osserviamo che, se usiamo il criterio del confronto asintotico partendo da una serie a segno costante per arrivare a una serie a segno non costante (in questo caso $\frac{(-1)^n}{\sqrt{n}}-\frac{1}{2n}$), il criterio del confronto asintotico non vale, come del resto si può osservare dalle ipotesi del criterio stesso.
 \end{itemize}
 \subsection{Come risolvere gli esercizi sulle serie numeriche}
 Gli esercizi sulle serie numeriche, in generale, possono essere di due tipi principali:
@@ -5596,7 +5593,6 @@ Per quanto riguarda invece il fatto di caratterizzare le serie, in realtà non �
         
 \end{itemize}
 
-\\
     \vspace{15pt}
     \hrule
     \vspace{15pt}
@@ -5650,7 +5646,6 @@ Ora, consideriamo una parabola tra 0 ed 1 ad esempio:
 
 \end{tikzpicture}
 \end{center}
-\\
 Abbiamo che su ogni intervallo è possibile costruire un rettangolo più grande e uno più piccolo, in particolare ciò è possibile se la funzione cresce o decresce, nel caso in cui sia costante allora rimaniamo fermi chiaramente.
 \\
 Sappiamo dunque per certo che la somma dei \virgolette{rettangoli superiori} è $\geqslant$ \virgolette{somma dei rettangoli inferiori}.
@@ -5752,8 +5747,9 @@ Se $U \subset V \subset \R$, allora $inf f ( \mbox{in} \,\,U) \geqslant inf f (\
 Concludiamo la dimostrazione di 1. osservando che
 \begin{equation*}
     =A+B+ (x_{k+1}-\xi) inf (f) + (\xi - x_k) inf (f) = s(f, P \bigcup \{\xi_1\})=s(f,P \bigcup \{\xi_1,\xi_2\}) \leqslant \underset{\mbox{itero}}{...} \leqslant s(f,Q)
-    \cvd
 \end{equation*}
+\\
+\cvd
 \item Se $m \leqslant f \leqslant M$, allora $m \leqslant inf(f) \leqslant supf \leqslant M$.
 \\
 Bisogna infatti sempre ricordare che il sup è più piccolo dei maggioranti.
@@ -5762,7 +5758,7 @@ Allora abbiamo che $S(f,P)= \sum_{k=0}^{n-1}(x_{k+1}-x_k)\, sup (f) \leqslant \s
 \\
 Analogamente $s(f,P) \geqslant m(b-a)$, dunque avremo
 \begin{equation*}
-    inf (f) (U) \leqslant sup(f)(U) \,\, \Longirghtarrow \,\, S(f,P) \geqslant s(f,P)
+    inf (f) (U) \leqslant sup(f)(U) \,\, \Longrightarrow \,\, S(f,P) \geqslant s(f,P)
 \end{equation*}
 \item La dimostrazione di 3. segue dalla dimostrazione di 1. perchè, prese singolarmente due partizioni qualunque $P$ e $Q$, pongo $R=P \bigcup Q$, con $R \owns P$ e $R \owns Q$, dunque $s(f,P) \leqslant s(f,R) \leqslant S(f,R) \leqslant S(f,Q)$, dove le disuguaglianze sono state dimostrate, in ordine, dalla 1,2,1.
 
@@ -5786,7 +5782,7 @@ Entrambi gli insiemi sono:
 \end{equation*}
 Insomma, entrambi sono limitati, perchè sono rinchiusi in questo intervallo chiuso e limitato.
 \\
-Infine sono una \textbf{\textit{coppia di Dedekind}}, dunque, essendo $ \in \R$, $\exixts$ un elemento $\gamma$ chiamato \textit{separatore}.
+Infine sono una \textbf{\textit{coppia di Dedekind}}, dunque, essendo $ \in \R$, $\exists$ un elemento $\gamma$ chiamato \textit{separatore}.
 \begin{center}
     \textbf{\textit{Definizione}}
 \end{center}
@@ -5935,7 +5931,7 @@ Dimostrare che, se $f \in C^0([0,1])$, ossia continua in $[0,1]$ e $f > 0 \,\, \
 \\
 Se poi $f \in R([a,b])$ e $f > 0 \,\,\, \forall x$, allora $\int_a^b f > 0$
 \\
-[\'E VERO]
+\'E VERO
     \vspace{15pt}
     \hrule
     \vspace{15pt}
@@ -6133,7 +6129,7 @@ Nel momento in cui dimostriamo con gli integrali definiti, ci accorgiamo che la 
     \item $\int sin(x) e^x dx$
 \end{itemize}
 \subsubsection{Seconda tecnica: cambio di variabile}
-Siano $f$ continua e $\vaphi$ derivabile con derivata continua.
+Siano $f$ continua e $\varphi$ derivabile con derivata continua.
 \\
 Allora l'integrale $\int f(\varphi (x))\varphi ' (x) dx = \int f(y) dy$, con $y=\varphi (x)$.
 \\
@@ -6297,7 +6293,6 @@ Allora, se
         f(x) ,\,\,\,\,\, x \in (a,b] \\
         p , \,\,\,\, x=a
     \end{cases}
-  
 \end{equation*}
 vale che $\int_a^b f$ converge e vale $\int_a^bf=\int_a^b \overline{f}$.
 
@@ -6339,7 +6334,7 @@ Allora $\int_a^b f$ converge $\Longleftrightarrow \,\,\,\,\, F(x) = \int_a^x f(t
 \end{itemize}
 
 \begin{center}
-    \Se $f \geqslant 0$, $\int_a^b f$ converge, e lo scriviamo (se vogliamo) come $\int_a^b f < +\infty$
+    Se $f \geqslant 0$, $\int_a^b f$ converge, e lo scriviamo (se vogliamo) come $\int_a^b f < +\infty$
 \end{center}
 
 \subsection{Criterio del confronto}
@@ -6580,7 +6575,6 @@ Osserviamo adesso i due pezzi separatamente:
 \item A questo punto l'integrale iniziale converge se e solo se converge il secondo integrale arrivato dall'integrazione per parti.
 \end{itemize}
 
-\\
 Allora, per vedere cosa fa questo integale proviamo ad applicare il criterio di convergenza assoluta, e osserviamo che:
 \begin{equation*}
     \int_1^T |Gf'|=\int_1^T |G|(-f')
@@ -7012,7 +7006,7 @@ una successione di funzioni, diremo che:
 \item $\sum f_n$
 converge puntualmente (CP) \underline{se} $S_n$ converge puntualmente
     \item $\sum f_n$ converge \textbf{assolutamente} (CA) se
-    \sum $\left| f_n\right|$
+    $\sum \left| f_n\right|$
     converge puntualmente.
     \item $\sum f_n$
     converge uniformemente (CU) se $S_n \rightrightarrows S$
@@ -7289,7 +7283,6 @@ Allora
 \end{equation}
 Osserviamo che $|a_n||x_0| \leqslant C \in \R$ poiché $\sum a_nx^n \in \R$ e dunque $|a_nx_0^n| \to 0$.
 
-\\
 Sia $0 < \overline{\delta} < \delta$, scegliamo $x_0 \in \left[-x_0+\overline{\delta}, x_0 + \overline{\delta}\right]$, in tal modo
 \begin{equation}
     \frac{|x|}{|x_0|-\overline{\delta}} \leqslant \frac{|x_0|-\delta}{|x_0|}
@@ -7358,7 +7351,7 @@ Allora $R=\frac{1}{L}$, con la convenzione che:
 \begin{itemize}
 \item Se esiste $\lim_{n \to +\infty}\frac{|a_{n+1}|}{|a_n|}$ allora $\exists \lim_{n \to +\infty} \sqrt[n]{|a_n|}$ e questi due sono lo stesso (per il corollario 4 di Stoltz-Cesàro)
 \item Se $R=+\infty$ abbiamo che la serie di potenze converge totalmente su $\left[-M,M\right]$ \,\,\,\, $\forall M > 0$.
-Se $R=+\infty$, allora $\forall r \in \R$, con $r > 0$, $\sum a_nr^n \,\,\,\, \in \R$, ma allora, fissato $M>0$, considero $r=M+1$ e ho che $\sum a_nr^n \,\,\, \in \R$, e dunque $\suma_nx^n$ \textbf{converge totalmente} sull'intervallo $[-M,M]$
+Se $R=+\infty$, allora $\forall r \in \R$, con $r > 0$, $\sum a_nr^n \,\,\,\, \in \R$, ma allora, fissato $M>0$, considero $r=M+1$ e ho che $\sum a_nr^n \,\,\, \in \R$, e dunque $\sum a_nx^n$ \textbf{converge totalmente} sull'intervallo $[-M,M]$
 \end{itemize}
 \begin{center}
     \textbf{\textit{Dimostrazione di $C-H$}}
@@ -7367,7 +7360,8 @@ L'idea è applicare il criterio della radice alla serie $\sum |a_n||x^n|$.
 \\
 Calcoliamoci $\sqrt[n]{|a_nx^n|}=\sqrt[n]{|a_n|} \cdot \sqrt[n]{|x|^n}=\sqrt[n]{|a_n|}\cdot x \,\,\, \to L|x|$.
 \\
-\begin{itemize}Ora, se $L=0$, ho che $\sqrt[n]{|a_nx^n|} \to 0 \,\,\, \forall \,\,\, x \in \R$.
+Ora, se $L=0$, ho che $\sqrt[n]{|a_nx^n|} \to 0 \,\,\, \forall \,\,\, x \in \R$.
+\begin{itemize}
 \item In particolare $\forall \,\,\, x \in \R$, $\,\,\, \sum a_nx^n \,\,\, \in \R$, e dunque $R=+\infty$
 \item Se $l=+\infty$, allora $\sum a_nx^n$ converge SOLO per $x=0$. Questo perchè per il criterio della radice, allora $\sqrt[n]{|a_nx^n|} \to +\infty$ (se $x=0$), infatti $a_nx^n \nrightarrow 0$, dunque non può convergere la serie (per il criterio necessario)
 \item Se $L \in (0, +\infty)$, allora
@@ -7730,10 +7724,12 @@ Consideriamo
 Dunque devo prendere $\delta < \frac{1}{2L}$, così $k=2L\delta < 1$ se $\delta < \frac{1}{2L}$
 \subsubsection{Passo 3: una successione ricorsiva}
 Definisco la successione ricorsiva:
+\begin{equation}
 \begin{cases}
     U_0= y_0 \,\,\,\,\,\ \mbox{(funzione costante)} \\
     U_{n+1}=F(U_n)
 \end{cases}
+\end{equation}
 \subsubsection{Passo 4: un calcolo}
 \begin{center}
     \textit{Si userà la notazione $||g||_\infty = \underset{I_\delta}{sup}|g|$}
